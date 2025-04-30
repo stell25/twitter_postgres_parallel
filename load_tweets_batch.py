@@ -187,6 +187,7 @@ def _insert_tweets(connection,input_tweets):
             'screen_name':remove_nulls(tweet['user']['screen_name']),
             'name':remove_nulls(tweet['user']['name']),
             'location':remove_nulls(tweet['user']['location']),
+            #'url':url,
             'description':remove_nulls(tweet['user']['description']),
             'protected':tweet['user']['protected'],
             'verified':tweet['user']['verified'],
@@ -290,6 +291,7 @@ def _insert_tweets(connection,input_tweets):
             urls = tweet['entities']['urls']
 
         for url in urls:
+            #url = u['expanded_url']
             tweet_urls.append({
                 'id_tweets':tweet['id'],
                 'url': url['expanded_url'],
@@ -350,7 +352,7 @@ def _insert_tweets(connection,input_tweets):
         for medium in media:
             tweet_media.append({
                 'id_tweets':tweet['id'],
-                'id_urls':id_urls,
+                'url':medium['media_url'],
                 'type':medium['type']
                 })
 

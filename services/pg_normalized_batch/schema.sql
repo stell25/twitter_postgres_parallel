@@ -61,7 +61,7 @@ CREATE INDEX tweets_index_withheldincountries ON tweets USING gin(withheld_in_co
 
 CREATE TABLE tweet_urls (
     id_tweets BIGINT,
-    id_urls BIGINT,
+    url TEXT,
 );
 
 
@@ -81,7 +81,7 @@ CREATE INDEX tweet_tags_index ON tweet_tags(id_tweets);
 
 CREATE TABLE tweet_media (
     id_tweets BIGINT,
-    id_urls BIGINT,
+    url TEXT,
     type TEXT,
 );
 
